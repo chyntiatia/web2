@@ -1,0 +1,50 @@
+DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn JS DOM</title>
+</head>
+<body>
+    <div id="chyntia _tampubolon">This is a sample div</div>
+    <p id="chyntia">This is a sample paragraph 1</p>
+    <p id="tampubolon">This is a sample paragraph 2</p>
+    <button id="button">Change Color</button>
+
+    <form id="form" onsubmit="return validateForm()">
+        <input type="text" id="input" required>
+        <input type="submit" value="Submit">
+    </form>
+
+    <script>
+        document.getElementById("chyntia_tampubolon").innerHTML = "Modified content of div";
+        document.getElementById("chyntia_tampubolon").style.color = "red";
+
+        var paragraphs = document.getElementsByTagName("p");
+        for (var i = 0; i < paragraphs.length; i++) {
+            paragraphs[i].innerHTML = "Modified content of paragraph " + (i + 1);
+        }
+
+        document.querySelector("button").onclick = function() {
+            document.getElementById("tampubolon").style.color = "blue";
+        }
+
+        function validateForm() {
+            var input = document.getElementById("input").value;
+            if (input === "") {
+                alert("Input cannot be empty");
+                return false;
+            }
+            return true;
+        }
+
+        var element = document.getElementById("chyntia_tampubolon");
+        console.log("Parent node: ", element.parentNode);
+        console.log("Child nodes: ", element.childNodes);
+        console.log("First child: ", element.firstChild);
+        console.log("Last child: ", element.lastChild);
+        console.log("Next sibling: ", element.nextSibling);
+        console.log("Previous sibling: ", element.previousSibling);
+    </script>
+</body>
+</html>
